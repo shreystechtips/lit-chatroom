@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import Center from "react-center";
 import YouTube from "react-youtube";
-import * as firebase from "firebase";
+import * as firebase from "firebase/app";
 import "firebase/database";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -139,7 +139,13 @@ function App() {
           >
             <Grid container direction="column">
               <Grid item>
-                <Typography className={classes.text}>Video Chat</Typography>
+                <Typography
+                  className={classes.text}
+                  variant="h5"
+                  style={{ fontWeight: "bold" }}
+                >
+                  Video Chatroom
+                </Typography>
               </Grid>
               <Grid item>
                 <div
@@ -177,7 +183,7 @@ function App() {
                 </div>
                 <Grid item style={{ backgroundColor: "white", padding: 5 }}>
                   <TextField
-                    label="Enter message"
+                    label="Enter a message"
                     filled
                     value={msg}
                     onChange={(val) => setMsg(val.target.value)}
