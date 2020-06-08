@@ -46,6 +46,7 @@ function App() {
   const [data, setData] = React.useState([]);
   const [msg, setMsg] = React.useState("");
 
+  const videoHeight = window.innerHeight;
   async function getElement(currElement, e) {
     let temp = videos[Math.floor(Math.random() * videos.length)];
     while (temp == currElement) {
@@ -58,7 +59,7 @@ function App() {
     console.log(window.outerHeight);
   }
 
-  window.addEventListener("resize", setWindowHeight);
+  // window.addEventListener("resize", setWindowHeight);
   setInterval(scroll, 1000);
   var values = db.child("messages").orderByChild("timestamp").limitToLast(100);
 
@@ -118,7 +119,7 @@ function App() {
             <YouTube
               opts={{
                 width: "100%",
-                height: window.innerHeight,
+                height: videoHeight,
                 playerVars: { autoplay: 1, controls: 0 },
               }}
               videoId={currElement}
